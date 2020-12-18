@@ -7,7 +7,7 @@ int gateLastState;
 int waitForWifiConnect;
 int wifiLastStatus;
 
-/* GPIO0 -> D3 (INGET KASI VOLTAGE DIVIDER, BIAR 5V NYA ARDUINO JADI 3.3v LOGIC, KARENA INI BAKALAN NGE BACA SIGNAL DARI ARDUINO NYA)
+/* GPIO0 -> D3 (INGET KASI VOLTAGE DIVIDER, BIAR 5V NYA ARDUINO JADI 3.3v, KARENA INI BAKALAN NGE BACA SIGNAL DARI ARDUINO NYA)
  * GPIO2 -> D12 (kalo yang ini ga perlu, soalnya ini ngirim signal ke arduino nya)
  * vcc -> sumber 3.3v
  * gnd -> gnd (inget buatin common ground, klo keduanya make supply yg beda)
@@ -16,7 +16,7 @@ int wifiLastStatus;
  */ 
 
 void setup() {
-  Serial.begin(115200);                 
+  Serial.begin(115200);            
   WiFi.begin("Laravel 2", "pENgUKuh@PeGUyanGAn?!421060");   
   pinMode(2, OUTPUT); // set gpio2 output untuk ngasi tau state garasi di server ke arduino
   pinMode(0, INPUT); // set gpio0 output untuk ngasi tau state garasi di server ke arduino
@@ -113,6 +113,10 @@ void loop() {
       gateLastState = 1;
     }
   }
+  Serial.print("Gate state: ");
+  Serial.println(gateState);
+  Serial.print("Gate last state: ");
+  Serial.println(gateLastState);
   Serial.println("=========================");
   delay(2000);  
 }
