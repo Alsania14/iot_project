@@ -17,7 +17,7 @@ int wifiLastStatus;
 
 void setup() {
   Serial.begin(115200);
-  WiFi.begin("Laravel 2", "pENgUKuh@PeGUyanGAn?!421060");
+  WiFi.begin("x", "x");
   pinMode(2, OUTPUT); // set gpio2 output untuk ngasi tau state garasi di server ke arduino
   pinMode(0, INPUT); // set gpio0 input untuk nge baca state garasi di local nya (yang dari arduino)
   while (WiFi.status() != WL_CONNECTED) {
